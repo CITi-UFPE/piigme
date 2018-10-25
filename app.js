@@ -54,12 +54,24 @@ app.get('/', (req, res) => {
   res.sendFile(getViewPath('home'));
 });
 
+app.post('/', (req, res) => {
+  db.ref('/links').push({
+    original_link: req.body.original_link,
+    custom_link: req.body.custom_link,
+  }, (error) => {
+    if (error) {
+      res.send('DB Error: ', error);
+      return;
+    }
+  });
+
+  res.sendFile(getViewPath('home'));
+});
+
 // ==================== START SERVER ==================== //
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('READY');
 });
-
-db.ref('test').set('yay');
 
 // ====================================================== //
