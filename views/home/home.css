@@ -3,3 +3,9 @@ body {
   color: turquoise;
   background-color: #222
 }
+
+#form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
