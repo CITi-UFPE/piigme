@@ -41,6 +41,7 @@ app.use(bodyParser.json());
 
 // serving static files
 app.use('/views', express.static(path.join(__dirname, 'views')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // ==================== FUNCTIONS ==================== //
 
@@ -60,7 +61,7 @@ app.post('/', (req, res) => { // save original and custom link on firebase
   const custom_link = req.body.custom_link;
   db.ref(`/links/${custom_link}`).set( {
     original_link,
-    clicks: 1
+    clicks: 0
   }, (error) => {
     if (error) {
       res.send('DB Error: ', error);
@@ -71,13 +72,32 @@ app.post('/', (req, res) => { // save original and custom link on firebase
   res.sendFile(getViewPath('home'));
 });
 
+app.get('/links', (req, res) => { // create view links
+  res.sendFile(getViewPath('links'));
+});
+
+app.get('/api/get_links', (req, res) => { // midleware function
+  const links = [];
+  db.ref('/links').once('value')
+    .then((snapshot) => {
+      snapshot.forEach((snap) => { // get db links
+        links.push({ // add links to array
+          key: snap.key,
+          original_link: snap.val().original_link,
+          clicks: snap.val().clicks,
+        });
+      });
+      res.send(JSON.stringify(links)); // parse object in JSON type
+    })
+    .catch((error) => {
+      console.log('Error:', error);
+    });
+});
+
 app.get('*', (req, res) => { // treat all the url requests but the above ones
   linkFoundFlag = false;
 
-  if(req.url === '/favicon.ico'){
-    res.send('favicon'); // TODO: send favicon
-    return;
-  };
+  if(req.url === '/favicon.ico') return;
 
   // redirect all the requests to it's correspondent links
   db.ref('/links').once('value').then((snapshot) => {
