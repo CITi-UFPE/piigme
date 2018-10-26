@@ -56,6 +56,10 @@ app.get('/links', (req, res) => { // create view links
   res.sendFile(getViewPath('links'));
 });
 
+app.get('/404', (req, res) => {
+  res.sendFile(getViewPath('404'));
+});
+
 // ==================== POST REQUESTS ==================== //
 
 app.post('/', (req, res) => { // save original and custom link on firebase
@@ -93,6 +97,7 @@ app.get('/api/get_links', (req, res) => { // midleware function
     console.log('Error:', error);
   });
 });
+
 
 // ==================== REDIRECT ROUTES ==================== //
 
