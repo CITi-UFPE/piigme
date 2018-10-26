@@ -41,6 +41,7 @@ app.use(bodyParser.json());
 
 // serving static files
 app.use('/views', express.static(path.join(__dirname, 'views')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // ==================== FUNCTIONS ==================== //
 
@@ -74,10 +75,7 @@ app.post('/', (req, res) => { // save original and custom link on firebase
 app.get('*', (req, res) => { // treat all the url requests but the above ones
   linkFoundFlag = false;
 
-  if(req.url === '/favicon.ico'){
-    res.send('favicon'); // TODO: send favicon
-    return;
-  };
+  if(req.url === '/favicon.ico') return;
 
   // redirect all the requests to it's correspondent links
   db.ref('/links').once('value').then((snapshot) => {
