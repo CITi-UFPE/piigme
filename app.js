@@ -71,7 +71,7 @@ app.post('/', (req, res) => { // save original and custom link on firebase
   res.sendFile(getViewPath('home'));
 });
 
-app.get('*', (req, res) => { // treat all the url requests but '/'
+app.get('*', (req, res) => { // treat all the url requests but the above ones
   linkFoundFlag = false;
 
   if(req.url === '/favicon.ico'){
