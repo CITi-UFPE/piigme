@@ -36,6 +36,7 @@ form {
 }
 
 .myButton {
+	margin-top: 15px;
 	-moz-box-shadow:inset 0px 0px 14px -3px #f2fadc;
 	-webkit-box-shadow:inset 0px 0px 14px -3px #f2fadc;
 	box-shadow:inset 0px 0px 14px -3px #f2fadc;
