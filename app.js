@@ -7,6 +7,7 @@ const firebase = require('firebase');
 
 // ==================== FIREBASE CONFIG ==================== //
 
+// TODO: Put apiKey in .env
 firebase.initializeApp({
   apiKey: "AIzaSyCeL6JxqXKNTsOM1DFHylKOxz4YE4K_trw",
   authDomain: "citily-1e28f.firebaseapp.com",
@@ -54,11 +55,10 @@ app.get('/', (req, res) => {
   res.sendFile(getViewPath('home'));
 });
 
-app.post('/', (req, res) => {
-  db.ref('/links').push({
-    original_link: req.body.original_link,
-    custom_link: req.body.custom_link,
-  }, (error) => {
+app.post('/', (req, res) => { // save original and custom link on firebase
+  const original_link = req.body.original_link;
+  const custom_link = req.body.custom_link;
+  db.ref(`/links/${custom_link}`).set( original_link, (error) => {
     if (error) {
       res.send('DB Error: ', error);
       return;
@@ -66,6 +66,23 @@ app.post('/', (req, res) => {
   });
 
   res.sendFile(getViewPath('home'));
+});
+
+app.get('*', (req, res) => { // treat all the url requests but '/'
+  linkFoundFlag = false;
+
+  if(req.url === '/favicon.ico'){
+    res.send('favicon'); // TODO: send favicon
+    return;
+  };
+
+  // redirect all the requests to it's correspondent links
+  db.ref('/links').once('value').then((snapshot) => {
+    snapshot.forEach((snap) => {
+      if(snap.key === req.url.slice(1)) res.redirect(snap.val());
+    });
+    if(!linkFoundFlag) res.send('not found page'); // TODO: link not found page
+  });
 });
 
 // ==================== START SERVER ==================== //
