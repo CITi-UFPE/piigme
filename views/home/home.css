@@ -1,4 +1,5 @@
 body {
+	font-family: 'Roboto Mono', monospace;
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -22,7 +23,6 @@ body {
 form {
   margin: 10px;
   font-size: 19px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .center {
