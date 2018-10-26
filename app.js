@@ -94,6 +94,10 @@ app.get('/api/get_links', (req, res) => { // midleware function
     });
 });
 
+app.get('/404', (req, res) => {
+  res.sendFile(getViewPath('404'));
+});
+
 app.get('*', (req, res) => { // treat all the url requests but the above ones
   linkFoundFlag = false;
 
