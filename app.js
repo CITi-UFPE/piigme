@@ -58,7 +58,10 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => { // save original and custom link on firebase
   const original_link = req.body.original_link;
   const custom_link = req.body.custom_link;
-  db.ref(`/links/${custom_link}`).set( original_link, (error) => {
+  db.ref(`/links/${custom_link}`).set( {
+    original_link,
+    clicks: 1
+  }, (error) => {
     if (error) {
       res.send('DB Error: ', error);
       return;
@@ -68,7 +71,7 @@ app.post('/', (req, res) => { // save original and custom link on firebase
   res.sendFile(getViewPath('home'));
 });
 
-app.get('*', (req, res) => { // treat all the url requests but '/'
+app.get('*', (req, res) => { // treat all the url requests but the above ones
   linkFoundFlag = false;
 
   if(req.url === '/favicon.ico'){
@@ -79,11 +82,20 @@ app.get('*', (req, res) => { // treat all the url requests but '/'
   // redirect all the requests to it's correspondent links
   db.ref('/links').once('value').then((snapshot) => {
     snapshot.forEach((snap) => {
-      if(snap.key === req.url.slice(1)) res.redirect(snap.val());
+      if(snap.key === req.url.slice(1)) {
+        db.ref(`/links/${snap.key}`).update({
+          clicks: +snap.val().clicks + 1, // keep count of the link accesses
+        }, (error) => {
+          res.redirect(snap.val().original_link);
+        });
+      }
     });
-    if(!linkFoundFlag) res.send('not found page'); // TODO: link not found page
   });
 });
+
+// if(!linkFoundFlag) res.send('not found page'); // TODO: link not found page
+
+// TODO: change post to ajax
 
 // ==================== START SERVER ==================== //
 
