@@ -3,7 +3,10 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  background-color: #ccc;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #form-container {
@@ -62,4 +65,20 @@ form {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.copyright{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: pink;
+  font-size: 0.7em;
+  padding: 5px 100px 5px 100px;
+  height: 50px;
+}
+
+.copyright span > a > img{
+  width: 20px;
+  height: 20px;
+  padding-top: 5px;
 }
