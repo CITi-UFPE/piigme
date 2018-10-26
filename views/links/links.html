@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/views/home/home.css">
+  <link rel="stylesheet" href="/views/links/links.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   <!-- FAVICON -->
   <link rel="apple-touch-icon" sizes="57x57" href="../../assets/favicon/apple-icon-57x57.png">
@@ -25,27 +25,17 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-  <title>CITi.ly</title>
+  <title>CITi.ly: Links</title>
 </head>
 
 <body>
-  <div id="form-container">
-    <div id="form-div">
-      <form method="POST">
-        <p>Cole aqui o seu link:</p>
-        <input type="text" name="original_link">
-        <p>Link customizado:</p>
-        <span class="color-grey">https://citi.ly/</span><input type="text" name="custom_link">
-        <div class="center">
-          <input type="submit" value="Criar" class="myButton">
-        </div>
-      </form>
-    </div>
+  <div id="navbar-container">
+    <button id="button-home">Back to Home!</button>
   </div>
-  <div id="button-container">
-    <a href="/links">Links</a>
+  <div id="table-container">
+      <table id="table-links" border=1></table>
   </div>
-  <script src="/views/home/home.js"></script>
+  <script src="/views/links/links.js"></script>
 </body>
 
 </html>
