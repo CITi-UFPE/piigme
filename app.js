@@ -68,12 +68,21 @@ app.post('/', (req, res) => { // save original and custom link on firebase
   res.sendFile(getViewPath('home'));
 });
 
-app.get('*', (req, res) => {
+app.get('*', (req, res) => { // treat all the url requests but '/'
+  linkFoundFlag = false;
+
+  if(req.url === '/favicon.ico'){
+    res.send('favicon'); // TODO: send favicon
+    return;
+  };
+
   // redirect all the requests to it's correspondent links
   db.ref('/links').once('value').then((snapshot) => {
-    
+    snapshot.forEach((snap) => {
+      if(snap.key === req.url.slice(1)) res.redirect(snap.val());
+    });
+    if(!linkFoundFlag) res.send('not found page'); // TODO: link not found page
   });
-  res.send(req.url);
 });
 
 // ==================== START SERVER ==================== //
