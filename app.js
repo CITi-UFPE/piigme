@@ -17,8 +17,6 @@ firebase.initializeApp({
   messagingSenderId: "206377299270"
 });
 
-// ==================== INTERNAL IMPORTS ==================== //
-
 // ==================== GLOBAL VARIABLES ==================== //
 
 const app = express();
@@ -48,13 +46,17 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 // returns the full path of the passed view
 const getViewPath = view => path.join(__dirname, `views/${view}/${view}.html`);
 
-// ==================== ROUTES ==================== //
-
 // ==================== RENDER VIEWS ==================== //
 
 app.get('/', (req, res) => {
   res.sendFile(getViewPath('home'));
 });
+
+app.get('/links', (req, res) => { // create view links
+  res.sendFile(getViewPath('links'));
+});
+
+// ==================== POST REQUESTS ==================== //
 
 app.post('/', (req, res) => { // save original and custom link on firebase
   const original_link = req.body.original_link;
@@ -72,27 +74,27 @@ app.post('/', (req, res) => { // save original and custom link on firebase
   res.sendFile(getViewPath('home'));
 });
 
-app.get('/links', (req, res) => { // create view links
-  res.sendFile(getViewPath('links'));
-});
+// ==================== API REQUESTS ==================== //
 
 app.get('/api/get_links', (req, res) => { // midleware function
   const links = [];
   db.ref('/links').once('value')
-    .then((snapshot) => {
-      snapshot.forEach((snap) => { // get db links
-        links.push({ // add links to array
-          key: snap.key,
-          original_link: snap.val().original_link,
-          clicks: snap.val().clicks,
-        });
+  .then((snapshot) => {
+    snapshot.forEach((snap) => { // get db links
+      links.push({ // add links to array
+        key: snap.key,
+        original_link: snap.val().original_link,
+        clicks: snap.val().clicks,
       });
-      res.send(JSON.stringify(links)); // parse object in JSON type
-    })
-    .catch((error) => {
-      console.log('Error:', error);
     });
+    res.send(JSON.stringify(links)); // parse object in JSON type
+  })
+  .catch((error) => {
+    console.log('Error:', error);
+  });
 });
+
+// ==================== REDIRECT ROUTES ==================== //
 
 app.get('*', (req, res) => { // treat all the url requests but the above ones
   linkFoundFlag = false;
