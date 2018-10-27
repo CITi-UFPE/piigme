@@ -9,6 +9,88 @@ body {
   justify-content: space-between;
 }
 
+/* LOGO ANIMATION */
+
+#animation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#text {
+  width: 600px;
+  z-index: 1;
+  position: relative;
+}
+
+.txt1 {
+  stroke-width: 3; /* tam do traço */
+  stroke-miterlimit: 10; /* limite para junção */
+  stroke: #262424;
+  fill: #262424;
+  stroke-dasharray: 1000; /* pontilhado do traço */
+  opacity: 10;
+  animation: animate 5s cubic-bezier(.62,.44,.91,.66);
+}
+
+@keyframes animate {
+  0% {
+      opacity: 0;
+      fill: none;
+      stroke-dashoffset: 1000; /* distancia entre o inicio e o fim do traço */
+      /* relaciona-se o dasharray com o dashoffset para criar o efeito de que os traços estão se encontrando */
+  }
+  20% {
+      opacity: 10;
+      fill: none;
+      stroke-dashoffset: 1000;
+  }
+  50% {
+      fill: rgba(255, 255, 255, 0);
+  }
+  60% {
+      opacity: 10;
+  }
+  70%{
+      stroke-dashoffset: 0;
+  }
+}
+
+#dot {
+  display: flex;
+  position: absolute;
+  top: 305px;
+  left: 478px;
+  z-index: 2;
+  animation: 1s fadeIn;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;    
+  visibility: hidden;
+}
+
+#dot img {
+  width: 45px;
+  height: 45px;
+}
+
+#dot p {
+  color: gray;
+  font-size: 120px;
+  margin-top: -75px;
+}
+
+@keyframes fadeIn {
+  0%{
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+      visibility: visible;
+  }
+}
+
+/* BOX URL */
+
 #form-container {
   height: 80%;
   display: flex;
@@ -61,11 +143,15 @@ form {
 	top:1px;
 }
 
+/* Links */
+
 #button-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+
+/* FOOTER */
 
 .copyright{
   display: flex;
@@ -79,6 +165,5 @@ form {
 
 .copyright span > a > img{
   width: 20px;
-  height: 20px;
   padding-top: 5px;
 }
