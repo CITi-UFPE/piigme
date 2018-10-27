@@ -70,10 +70,26 @@
   <div id="form-container">
     <div id="form-div">
       <form method="POST">
-        <p>Cole aqui o seu link:</p>
-        <input type="text" name="original_link">
-        <p>Link customizado:</p>
-        <span class="color-grey">https://citi.ly/</span><input type="text" name="custom_link">
+        <div class="url-box">
+          <div class="link-text">
+            <p class="ltext-frist">#</p>
+            <div class="ltext-box">
+              <p>Link</p>
+              <p>Original</p>
+            </div>
+          </div>
+          <input type="text" name="original_link">
+        </div>
+        <div class="url-box">
+            <div class="link-text">
+              <p class="ltext-frist">#</p>
+              <div class="ltext-box">
+                <p>Link</p>
+                <p>Customizado</p>
+              </div>
+            </div>
+            <span id="custom-ltext">https://citi.ly/</span><input id="custom-link" type="text" name="custom_link">
+          </div>
         <div class="center">
           <input type="submit" value="Criar" class="myButton">
         </div>
