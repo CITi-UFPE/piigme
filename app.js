@@ -1,9 +1,9 @@
 // ==================== EXTERNAL IMPORTS ==================== //
 
 const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
 const firebase = require('firebase');
+const path = require('path');
 
 // ==================== FIREBASE CONFIG ==================== //
 
@@ -56,16 +56,12 @@ app.get('/links', (req, res) => { // create view links
   res.sendFile(getViewPath('links'));
 });
 
-app.get('/404', (req, res) => {
-  res.sendFile(getViewPath('404'));
-});
-
 // ==================== POST REQUESTS ==================== //
 
 app.post('/', (req, res) => { // save original and custom link on firebase
   const original_link = req.body.original_link;
   const custom_link = req.body.custom_link;
-  db.ref(`/links/${custom_link}`).set( {
+  db.ref(`/links/${custom_link}`).set({
     original_link,
     clicks: 0
   }, (error) => {
@@ -80,36 +76,36 @@ app.post('/', (req, res) => { // save original and custom link on firebase
 
 // ==================== API REQUESTS ==================== //
 
-app.get('/api/get_links', (req, res) => { // midleware function
+app.get('/api/get_links', (req, res) => { // middleware function
   const links = [];
   db.ref('/links').once('value')
-  .then((snapshot) => {
-    snapshot.forEach((snap) => { // get db links
-      links.push({ // add links to array
-        key: snap.key,
-        original_link: snap.val().original_link,
-        clicks: snap.val().clicks,
+    .then((snapshot) => {
+      snapshot.forEach((snap) => { // get db links
+        links.push({ // add links to array
+          key: snap.key,
+          original_link: snap.val().original_link,
+          clicks: snap.val().clicks,
+        });
       });
+      res.send(JSON.stringify(links)); // parse object in JSON type
+    })
+    .catch((error) => {
+      console.log('Error:', error);
     });
-    res.send(JSON.stringify(links)); // parse object in JSON type
-  })
-  .catch((error) => {
-    console.log('Error:', error);
-  });
 });
-
 
 // ==================== REDIRECT ROUTES ==================== //
 
 app.get('*', (req, res) => { // treat all the url requests but the above ones
-  linkFoundFlag = false;
+  matchFlag = false;
 
-  if(req.url === '/favicon.ico') return;
+  if (req.url === '/favicon.ico') return;
 
   // redirect all the requests to it's correspondent links
   db.ref('/links').once('value').then((snapshot) => {
     snapshot.forEach((snap) => {
-      if(snap.key === req.url.slice(1)) {
+      if (snap.key === req.url.slice(1)) {
+        matchFlag = true;
         db.ref(`/links/${snap.key}`).update({
           clicks: +snap.val().clicks + 1, // keep count of the link accesses
         }, (error) => {
@@ -117,10 +113,10 @@ app.get('*', (req, res) => { // treat all the url requests but the above ones
         });
       }
     });
+
+    if(!matchFlag) res.sendFile(getViewPath('404'));
   });
 });
-
-// if(!linkFoundFlag) res.send('not found page'); // TODO: link not found page
 
 // TODO: change post to ajax
 
