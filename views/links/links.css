@@ -3,14 +3,14 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  background-color: #ccc;
+  background-color: #ffffff;
 }
 
 #navbar-container{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 20px;
+	margin: 50px 20px;
 }
 
 #table-container {
@@ -20,9 +20,19 @@ body {
   justify-content: center;
 }
 
+#table-links {
+  border: 4px solid black;
+  border-collapse: collapse;
+}
+
 #table-links td {
-	padding: 2px;
-}  
+	padding: 20px;
+}
+
+#table-links th {
+  background-color: pink;
+  padding: 15px;
+}
 
 #table-clicks {
 	text-align: center;
