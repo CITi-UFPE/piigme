@@ -14,7 +14,7 @@ nav{
   position: fixed;
   width: 10em;
   height: 100%;
-  z-index:0;
+  z-index:1;
   background-color:pink;
   list-style-type: none;
 }
@@ -37,6 +37,7 @@ a{
   align-items: center;
   justify-content: center;
   position: relative;
+  z-index: 0;
   top:-2.5em;
 }
 
