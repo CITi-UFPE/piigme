@@ -217,15 +217,22 @@ form {
   align-items: center;
   justify-content: space-between;
   background-color: pink;
-  position: relative;
+  position: absolute;
   z-index: 1;
   font-size: 0.7em;
-  padding: 5px 100px 5px 100px;
   height: 50px;
-  top:0;
+  width: 100%;
+  bottom:0;
 }
 
 .copyright span > a > img{
   width: 20px;
   padding-top: 5px;
+}
+
+.hacktober{
+  margin-left: 100px;
+}
+.code-love{
+  margin-right: 100px;
 }
