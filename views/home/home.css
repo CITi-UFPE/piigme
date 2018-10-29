@@ -9,12 +9,35 @@ body {
   justify-content: space-between;
 }
 
+/* nav bar */
+nav{
+  position: fixed;
+  width: 10em;
+  height: 100%;
+  z-index:0;
+  background-color:pink;
+  list-style-type: none;
+}
+.nav-list__item{
+  list-style-type: none;
+  margin-top: 1em;
+}
+
+a{
+  text-decoration: none !important;
+  font-weight: bolder;
+  color: white;
+  padding-left:2px;
+}
+
 /* LOGO ANIMATION */
 
 #animation-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top:-2.5em;
 }
 
 #text {
@@ -92,6 +115,8 @@ body {
 /* BOX URL */
 
 #form-container {
+  position: relative;
+  top:-6em; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,7 +206,7 @@ form {
 #button-container {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+  border-bottom: 3px solid white;
 }
 
 /* FOOTER */
@@ -191,9 +216,12 @@ form {
   align-items: center;
   justify-content: space-between;
   background-color: pink;
+  position: relative;
+  z-index: 1;
   font-size: 0.7em;
   padding: 5px 100px 5px 100px;
   height: 50px;
+  top:0;
 }
 
 .copyright span > a > img{
