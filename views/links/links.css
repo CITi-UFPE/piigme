@@ -5,10 +5,10 @@ body {
 }
 
 ::selection {
-  background: palevioletred; 
+  background: greenyellow; 
 }
 ::-moz-selection {
-  background: palevioletred; 
+  background: rgb(112, 157, 216); 
 }
 
 #navbar-container{
