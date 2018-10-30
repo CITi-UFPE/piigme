@@ -1,14 +1,14 @@
 body {
-	font-family: 'Roboto Mono', monospace;
+	font-family: 'Times New Roman', monospace;
   margin: 0;
   background-color: #ffffff;
 }
 
 ::selection {
-  background: greenyellow; 
+  background: palevioletred;
 }
 ::-moz-selection {
-  background: rgb(112, 157, 216); 
+  background: palevioletred;
 }
 
 #navbar-container{
