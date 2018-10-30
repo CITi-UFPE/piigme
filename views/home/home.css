@@ -227,8 +227,6 @@ form {
 
 .copyright{
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: pink;
   position: absolute;
   z-index: 1;
@@ -236,6 +234,13 @@ form {
   height: 50px;
   width: 100%;
   bottom:0;
+}
+
+.copyright div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%
 }
 
 .copyright span > a > img{
@@ -248,4 +253,28 @@ form {
 }
 .code-love{
   margin-right: 100px;
+}
+
+.copyright > i {
+  font-size: 2em;
+  color: #ffffff;
+  align-self: center;
+  margin-left: 30px;
+  display: none;
+}
+
+/* RESPONSIVE NAVBAR */
+
+@media (max-width: 930px) {
+  nav {
+    display: none;
+  }
+
+  .hacktober {
+    margin-left: 50px
+  }
+  
+  .copyright > i {
+    display: block;
+  }
 }
