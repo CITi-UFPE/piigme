@@ -255,12 +255,21 @@ form {
   margin-right: 100px;
 }
 
-.copyright > i {
+.copyright a i {
   font-size: 2em;
   color: #ffffff;
   align-self: center;
-  margin-left: 30px;
   display: none;
+}
+
+.copyright a {
+  align-self: center;
+  margin-left: 30px;
+
+}
+
+.active {
+  display: block!important;
 }
 
 /* RESPONSIVE NAVBAR */
@@ -274,7 +283,8 @@ form {
     margin-left: 50px
   }
   
-  .copyright > i {
+  .copyright > a > i {
     display: block;
   }
+
 }
