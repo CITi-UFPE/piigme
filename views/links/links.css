@@ -4,6 +4,13 @@ body {
   background-color: #ffffff;
 }
 
+::selection {
+  background: palevioletred; 
+}
+::-moz-selection {
+  background: palevioletred; 
+}
+
 #navbar-container{
 	display: flex;
 	align-items: center;

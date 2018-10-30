@@ -9,6 +9,13 @@ body {
   justify-content: space-between;
 }
 
+::selection {
+  background: palevioletred; 
+}
+::-moz-selection {
+  background: palevioletred; 
+}
+
 /* nav bar */
 nav{
   position: fixed;
