@@ -136,6 +136,12 @@ a{
   width: 450px;
   border: 0;
   border-bottom: 4px solid black;
+  outline: none;
+  transition: ease 400ms;
+}
+
+.url-box input:focus {
+  border-color: palevioletred;
 }
 
 .link-text {
