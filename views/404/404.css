@@ -3,7 +3,7 @@ body {
 	margin: 0;
   padding: 0;
   width: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 #container {
@@ -13,6 +13,10 @@ body {
   justify-content: center;
   height: 100vh;
   z-index: 2;
+}
+
+#container > img {
+  max-width: 100vw;
 }
 
 #rain-box {
