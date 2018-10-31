@@ -269,14 +269,21 @@ form {
 }
 
 .active {
-  display: block!important;
+  width: 200px;
+  color: #FFF;
+  background-color: pink;
+  transition: all .3s ease-in-out;
 }
 
 /* RESPONSIVE NAVBAR */
 
 @media (max-width: 930px) {
   nav {
-    display: none;
+    width: 0;
+    color: transparent;
+    background-color: transparent;
+    display: block;
+    transition: all .3s ease-in-out;
   }
 
   .hacktober {
