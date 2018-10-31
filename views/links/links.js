@@ -3,7 +3,7 @@ const populateTable = (links) => {
     document.querySelector('#table-links').innerHTML = `
       <tr>
         <th>Custom Links</th>
-        <th>Original Links</th>
+        <th class="mobile-gone">Original Links</th>
         <th>Views</th>
       </tr>
     `;
@@ -12,7 +12,7 @@ const populateTable = (links) => {
       document.querySelector('#table-links').innerHTML += `
         <tr>
           <td><a href="/${each.key}">/${each.key}</a></td>
-          <td>${each.original_link}</td>
+          <td class="mobile-gone" >${each.original_link}</td>
           <td id="table-clicks">${each.clicks}</td>
         </tr>
       `;
