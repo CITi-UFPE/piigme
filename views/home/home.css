@@ -278,6 +278,11 @@ form {
   display: block!important;
 }
 
+svg {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
 /* RESPONSIVE NAVBAR */
 
 @media (max-width: 930px) {
@@ -293,6 +298,19 @@ form {
     display: block;
   }
 
+  #form-div {
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  #custom-ltext {
+    left: 0;
+  }
+
+  #custom-link {
+    width: 408px;
+  }
+  
   footer > #hamburguer {
     margin-right: 30px;
   }
