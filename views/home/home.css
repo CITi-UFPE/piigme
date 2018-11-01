@@ -37,6 +37,12 @@ a{
   padding-left:2px;
 }
 
+nav ul {
+  padding-left: 20px;
+  font-size: 0.9em;
+
+}
+
 /* LOGO ANIMATION */
 
 #animation-container {
@@ -303,6 +309,19 @@ svg {
 
   #custom-link {
     width: 408px;
+  }
+  
+  footer > #hamburguer {
+    margin-right: 30px;
+  }
+
+  footer > div > .code-love {
+    margin-right: 0;
+  }
+
+  footer > div > .hacktober {
+    margin-left: 0;
+    margin-right: 10px;
   }
 
 }

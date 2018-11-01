@@ -56,6 +56,10 @@ app.get('/links', (req, res) => { // create view links
   res.sendFile(getViewPath('links'));
 });
 
+app.get('/contributors', (req, res) => {
+  res.sendFile(getViewPath('contributors'));
+});
+
 // ==================== POST REQUESTS ==================== //
 
 app.post('/', (req, res) => { // save original and custom link on firebase
