@@ -19,33 +19,32 @@ body {
 /* nav bar */
 nav{
   position: fixed;
-  width: 10em;
+  width: 12em;
   height: 100%;
   z-index:1;
   background-color:pink;
   list-style-type: none;
 }
-.nav-list__item{
+.nav-list-item{
   list-style-type: none;
   margin-top: 1em;
 }
 
-a{
+nav ul a{
   text-decoration: none !important;
   font-weight: bolder;
-  color: white;
+  color: #262424;;
   padding-left:2px;
 }
 
 nav ul {
-  padding-left: 20px;
+  padding-left: 40px;
   font-size: 0.9em;
-
 }
 
 /* LOGO ANIMATION */
 
-#animation-container {
+#animationContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,7 +112,8 @@ nav ul {
 #dot p {
   color: gray;
   font-size: 50px;
-  margin-top: -30px;
+  margin-top: -26px;
+  margin-left: 5px;
 }
 
 @keyframes fadeIn {
@@ -128,7 +128,7 @@ nav ul {
 
 /* BOX URL */
 
-#form-container {
+#formContainer {
   position: relative;
   top:-6em; 
   display: flex;
@@ -182,12 +182,12 @@ nav ul {
   padding: 0;
 }
 
-#custom-ltext {
+#customLinkText {
   right: 280px;
   position: absolute;
 }
 
-#custom-link {
+#customLink {
   width: 270px;
 }
 
@@ -202,7 +202,7 @@ form {
   justify-content: flex-end;
 }
 
-.myButton {
+#myButton {
   margin-top: 15px;
   border: 4px solid black;
   display: inline-block;
@@ -213,20 +213,20 @@ form {
   padding: 5px 50px;
   background-color: white;
 }
-.myButton:hover {
+#myButton:hover {
 	background-color: lightgray;
 }
-.myButton:active {
+#myButton:active {
 	position:relative;
 	top:1px;
 }
 
 /* Links */
 
-#button-container {
+#buttonContainer {
 	display: flex;
 	align-items: center;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid #262424;
 }
 
 /* FOOTER */
@@ -245,20 +245,17 @@ form {
 .copyright div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%
+}
+
+.copyright div span {
+  margin: auto;
 }
 
 .copyright span > a > img{
   width: 20px;
   padding-top: 5px;
-}
-
-.hacktober{
-  margin-left: 100px;
-}
-.code-love{
-  margin-right: 100px;
 }
 
 .copyright a i {
@@ -270,8 +267,10 @@ form {
 
 .copyright a {
   align-self: center;
-  margin-left: 30px;
+}
 
+.code-love {
+  margin-right: 12em !important;
 }
 
 .active {
@@ -297,6 +296,40 @@ svg {
     transition: all .3s ease-in-out;
   }
 
+  #sidebarList {
+    display: none;
+  }
+
+  #text {
+    width: 250px;
+    margin-top: 20px;
+  }
+
+  #dot {
+    top: 170px;
+  }
+
+  #formDiv {
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  #customLinkText {
+    left: 0;
+  }
+
+  #customLink {
+    width: 408px;
+  }
+
+  .copyright div {
+    flex-direction: column;
+  }
+
+  .copyright div span {
+    margin: 0;
+  }
+
   .hacktober {
     margin-left: 50px
   }
@@ -304,26 +337,13 @@ svg {
   .copyright > a > i {
     display: block;
   }
-
-  #form-div {
-    width: 100vw;
-    overflow: hidden;
-  }
-
-  #custom-ltext {
-    left: 0;
-  }
-
-  #custom-link {
-    width: 408px;
-  }
   
-  footer > #hamburguer {
-    margin-right: 30px;
+  #hamburguer {
+    margin: 0 30px;
   }
 
-  footer > div > .code-love {
-    margin-right: 0;
+  .code-love {
+    margin-right: 0 !important;
   }
 
   footer > div > .hacktober {
