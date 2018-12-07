@@ -18,14 +18,13 @@ hamburguer.addEventListener('click', function () {
 });
 
 function copyLink() {
-        let customText = document.getElementById('customLink').value;
-        let customLink = 'http://citi.me/' + customText;
-        let element = document.createElement('textarea');
-        element.value = customLink;
-        document.body.appendChild(element);
-        element.select();
-        document.execCommand('copy');
-        document.body.removeChild(element);
-    console.log('aaaa')
-        alert('Link criado e copiado para área de transferência!!');
+    let customText = document.getElementById('customLink').value;
+    let customLink = 'http://citi.me/' + customText;
+    let element = document.createElement('textarea');
+    element.value = customLink;
+    document.body.appendChild(element);
+    element.select();
+    document.execCommand('copy');
+    document.body.removeChild(element);
+    alert('Link criado e copiado para área de transferência!!');
 }
