@@ -190,6 +190,10 @@ nav ul {
   width: 270px;
 }
 
+#newLink {
+  display: none;
+}
+
 form {
   margin: 10px;
   font-size: 19px;
