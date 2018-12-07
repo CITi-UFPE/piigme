@@ -6,7 +6,6 @@ body {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 ::selection {
@@ -50,7 +49,6 @@ nav ul {
   justify-content: center;
   position: relative;
   z-index: 0;
-  top:-2.5em;
 }
 
 #text {
@@ -130,7 +128,7 @@ nav ul {
 
 #formContainer {
   position: relative;
-  top:-6em; 
+  top: 8em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,6 +145,7 @@ nav ul {
   position: absolute;
   padding: 5px;
   width: 450px;
+  font-size: 16px;
   border: 0;
   border-bottom: 4px solid black;
   outline: none;
@@ -269,10 +268,6 @@ form {
   align-self: center;
 }
 
-.code-love {
-  margin-right: 12em !important;
-}
-
 .active {
   width: 200px;
   color: #FFF;
@@ -285,9 +280,13 @@ svg {
   max-height: 100vh;
 }
 
-/* RESPONSIVE NAVBAR */
+/* RESPONSIVE */
 
-@media (max-width: 930px) {
+@media (max-width: 1000px) {
+  body {
+    justify-content: space-evenly;
+  }
+  /* SIDEBAR */
   nav {
     width: 0;
     color: transparent;
@@ -300,6 +299,12 @@ svg {
     display: none;
   }
 
+  /* LOGO */
+
+  #animationContainer {
+    top: -2em;
+  }
+
   #text {
     width: 250px;
     margin-top: 20px;
@@ -309,18 +314,50 @@ svg {
     top: 170px;
   }
 
+  /* LINKS */
+
+  #formContainer {
+    top: -4em;
+  }
+
   #formDiv {
-    width: 100vw;
+    width: 95vw;
     overflow: hidden;
+  }
+
+  .url-box {
+    width: 450px;
+  }
+
+  .url-box input {
+    width: 400px;
+    right: unset;
+    padding: 0;
+  }
+
+  .ltext-box {
+    font-size: 18px;
   }
 
   #customLinkText {
     left: 0;
+    font-size: 14px;
   }
 
   #customLink {
-    width: 408px;
+    width: 310px;
+    right: 0;
   }
+
+  #myButton {
+    font-size: 18px;
+  }
+
+  .center {
+    width: 102%;
+  }
+
+  /* FOOTER */
 
   .copyright div {
     flex-direction: column;
@@ -343,7 +380,7 @@ svg {
   }
 
   .code-love {
-    margin-right: 0 !important;
+    margin-right: 0;
   }
 
   footer > div > .hacktober {

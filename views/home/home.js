@@ -7,10 +7,12 @@ let sidebarList = document.getElementById('sidebarList');
 hamburguer.addEventListener('click', function () {
     navbar.classList.toggle('active');
 
-    let sidebarListDisplay = window.getComputedStyle(sidebarList).getPropertyValue('display');
-    if (sidebarListDisplay == 'block') {
-        sidebarList.style.display = 'none';
-    } else if (sidebarListDisplay == 'none') {
-        sidebarList.style.display = 'block';
-    }
+    setTimeout(function(){
+        let sidebarListDisplay = window.getComputedStyle(sidebarList).getPropertyValue('display');
+        if (sidebarListDisplay == 'block') {
+            sidebarList.style.display = 'none';
+        } else if (sidebarListDisplay == 'none') {
+            sidebarList.style.display = 'block';
+        }
+    }, 100);
 });
