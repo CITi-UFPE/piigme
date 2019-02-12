@@ -32,10 +32,6 @@ body {
   overflow: scroll;
 }
 
-.mobile-gone {
-  display: none;
-}
-
 #table-links td {
 	padding: 20px;
 }
@@ -58,4 +54,11 @@ body {
   font-weight: bold;
   padding: 5px 50px;
   background-color: #ffffff;
+}
+
+
+@media (max-width: 1000px) {
+  .mobile-gone {
+    display: none;
+  }
 }
