@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
 body {
 	font-family: 'Roboto Mono', monospace;
   height: 100vh;
@@ -9,19 +11,64 @@ body {
 }
 
 ::selection {
-  background: palevioletred; 
+  background: lightgreen; 
 }
 ::-moz-selection {
-  background: palevioletred; 
+  background: lightgreen; 
 }
 
-/* nav bar */
+/* BASE */
+header {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 0.3em;
+}
+
+#logoImg {
+  width: 1.2em;
+  height: 1.2em;
+  margin: 5px;
+}
+
+#headerText {
+  font-family: 'Anonymous Pro', monospace;
+  margin: 0 auto;
+  border-right: 2px solid #000000;
+  border-left: 2px solid transparent;
+  font-size: 1.2em;
+  line-height: 1.3em;
+  overflow: hidden;
+}
+
+.text-animation {
+  animation: typewriter 2s steps(7) 0.5s 1 normal both,
+             blinkTextCursor 300ms steps(7) both 15;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to { 
+    width: 3.8em;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from { 
+    border-right-color: #000000;
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
 nav{
   position: fixed;
   width: 12em;
   height: 100%;
-  z-index:1;
-  background-color:pink;
+  z-index: 1;
+  background-color:#51e678;
   list-style-type: none;
 }
 .nav-list-item{
@@ -32,7 +79,7 @@ nav{
 nav ul a{
   text-decoration: none !important;
   font-weight: bolder;
-  color: #262424;;
+  color: #000000;;
   padding-left:2px;
 }
 
@@ -41,94 +88,26 @@ nav ul {
   font-size: 0.9em;
 }
 
-/* LOGO ANIMATION */
-
-#animationContainer {
-  display: flex;
+.button-container {
+	display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 0;
+  font-weight: bolder;
+  border-bottom: 3px solid #000000;
 }
 
-#text {
-  width: 400px;
-  z-index: 1;
-  position: relative;
+#localPage {
+  color: #000000;
+  font-style: italic;
 }
 
-.txt1 {
-  stroke-width: 3; /* tam do traço */
-  stroke-miterlimit: 10; /* limite para junção */
-  stroke: #262424;
-  fill: #262424;
-  stroke-dasharray: 1000; /* pontilhado do traço */
-  opacity: 10;
-  animation: animate 5s cubic-bezier(.62,.44,.91,.66);
-}
 
-@keyframes animate {
-  0% {
-      opacity: 0;
-      fill: none;
-      stroke-dashoffset: 1000; /* distancia entre o inicio e o fim do traço */
-      /* relaciona-se o dasharray com o dashoffset para criar o efeito de que os traços estão se encontrando */
-  }
-  20% {
-      opacity: 10;
-      fill: none;
-      stroke-dashoffset: 1000;
-  }
-  50% {
-      fill: rgba(255, 255, 255, 0);
-  }
-  60% {
-      opacity: 10;
-  }
-  70%{
-      stroke-dashoffset: 0;
-  }
-}
+/* MAIN */
 
-#dot {
-  display: flex;
-  position: absolute;
-  top: 265px;
-  right: 0;
-  z-index: 2;
-  animation: 1s fadeIn;
-  animation-delay: 5s;
-  animation-fill-mode: forwards;    
-  visibility: hidden;
+main {
+  margin: auto;
 }
-
-#dot img {
-  width: 25px;
-  height: 25px;
-}
-
-#dot p {
-  color: gray;
-  font-size: 50px;
-  margin-top: -26px;
-  margin-left: 5px;
-}
-
-@keyframes fadeIn {
-  0%{
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-      visibility: visible;
-  }
-}
-
-/* BOX URL */
 
 #formContainer {
-  position: relative;
-  top: 8em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +132,7 @@ nav ul {
 }
 
 .url-box input:focus {
-  border-color: palevioletred;
+  border-color: #51e678;
 }
 
 .link-text {
@@ -220,20 +199,12 @@ form {
 	top:1px;
 }
 
-/* Links */
-
-#buttonContainer {
-	display: flex;
-	align-items: center;
-  border-bottom: 3px solid #262424;
-}
-
 /* FOOTER */
 
 .copyright{
   display: flex;
-  background-color: pink;
-  position: absolute;
+  background-color:#51e678;
+  position: fixed;
   z-index: 1;
   font-size: 0.7em;
   height: 50px;
@@ -259,7 +230,7 @@ form {
 
 .copyright a i {
   font-size: 2em;
-  color: #ffffff;
+  color: #000000;
   align-self: center;
   display: none;
 }
@@ -270,8 +241,7 @@ form {
 
 .active {
   width: 200px;
-  color: #FFF;
-  background-color: pink;
+  background-color:#51e678;
   transition: all .3s ease-in-out;
 }
 
@@ -299,22 +269,7 @@ svg {
     display: none;
   }
 
-  /* LOGO */
-
-  #animationContainer {
-    top: -2em;
-  }
-
-  #text {
-    width: 250px;
-    margin-top: 20px;
-  }
-
-  #dot {
-    top: 170px;
-  }
-
-  /* LINKS */
+  /* MAIN */
 
   #formContainer {
     top: -4em;

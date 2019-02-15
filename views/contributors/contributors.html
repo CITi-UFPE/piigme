@@ -2,92 +2,151 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/views/contributors/contributors.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-  <!-- FAVICON -->
-  <link rel="apple-touch-icon" sizes="57x57" href="../../assets/favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../../assets/favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../../assets/favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../../assets/favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../../assets/favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../../assets/favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../../assets/favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32"   href="../../assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96"   href="../../assets/favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16"   href="../../assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  <title>CITi.ly</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/views/contributors/contributors.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../../assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+
+    <title>piig.me by CITi</title>
 </head>
 
 <body>
-    <h2>Com código de:</h2>
+    <!-- BASE -->
+    <header>
+        <div>
+            <img id="logoImg" src="../../assets/images/pig-logo.png" alt="Logo piig.me">
+        </div>
+        <p id="headerText" class="text-animation">piig.me</p>
+    </header>
+    <nav id="sidebar">
+        <ul id="sidebarList">
+            <li class="nav-list-item">
+                <div class="button-container">
+                    <a href="/">Home</a>
+                </div>
+            </li>
+            <li class="nav-list-item">
+                <div class="button-container">
+                    <a href="/404">404</a>
+                </div>
+            </li>
+            <li class="nav-list-item">
+                <div class="button-container" id="localPage">
+                    <span>Colaboradores</span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- BASE END -->
+    <main>
+        <h2 id="contributorsTitle">Com código de:</h2>
+        <div id="contributorsBox">
+            <ul>
+                <li>
+                    <a href="https://github.com/citiufpe">
+                        <img src="https://avatars2.githubusercontent.com/u/22622645">
+                        <p>@citiufpe</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/L1224rd">
+                        <img src="https://avatars3.githubusercontent.com/u/31988308">
+                        <p>@L1224rd</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/dxxglas">
+                        <img src="https://avatars2.githubusercontent.com/u/30848833">
+                        <p>@dxxglas</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/vicpantoja">
+                        <img src="https://avatars2.githubusercontent.com/u/38823219">
+                        <p>@vicpantoja</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/pamella">
+                        <img src="https://avatars0.githubusercontent.com/u/22326737">
+                        <p>@pamella</p>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="https://github.com/marcoafsantana">
+                        <img src="https://avatars1.githubusercontent.com/u/29415649">
+                        <p>@marcoafsantana</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/gabrielaleal">
+                        <img src="https://avatars1.githubusercontent.com/u/24635967">
+                        <p>@gabrielaleal</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/EulaliaAires">
+                        <img src="https://avatars1.githubusercontent.com/u/22326780">
+                        <p>@EulaliaAires</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/carolvieira">
+                        <img src="https://avatars2.githubusercontent.com/u/39655212">
+                        <p>@carolvieira</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
 
-    <ul>
-        <li>
-            <a href="https://github.com/citiufpe">
-                <img src="https://avatars2.githubusercontent.com/u/22622645">
-                <p>@citiufpe</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/L1224rd">
-                <img src="https://avatars3.githubusercontent.com/u/31988308">
-                <p>@L1224rd</p>  
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/dxxglas">
-                <img src="https://avatars2.githubusercontent.com/u/30848833">
-                <p>@dxxglas</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/vicpantoja">
-                <img src="https://avatars2.githubusercontent.com/u/38823219">
-                <p>@vicpantoja</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/pamella">
-                <img src="https://avatars0.githubusercontent.com/u/22326737">
-                <p>@pamella</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/marcoafsantana">
-                <img src="https://avatars1.githubusercontent.com/u/29415649">
-                <p>@marcoafsantana</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/gabrielaleal">
-                <img src="https://avatars1.githubusercontent.com/u/24635967">
-                <p>@gabrielaleal</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/EulaliaAires">
-                <img src="https://avatars1.githubusercontent.com/u/22326780">
-                <p>@EulaliaAires</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/carolvieira">
-                <img src="https://avatars2.githubusercontent.com/u/39655212">
-                <p>@carolvieira</p>
-            </a>
-        </li>
-    </ul>
-  <script src="/views/contributors/contributors.js"></script>
+    <!-- BASE -->
+    <footer class="copyright">
+        <a id="hamburguer">
+            <i class="fas fa-bars"></i>
+        </a>
+        <div>
+            <span class="hacktober">HacktoberFest 2018</span>
+            <span class="code-love">Made with
+                <i class="fas fa-code"></i>
+                and
+                <i class="far fa-heart"></i>
+                by
+                <a href="http://citi.org.br/" target="_blank">
+                    <img src="../../assets/images/preto.png" id="logoCiti">
+                </a>
+            </span>
+        </div>
+    </footer>
+    <!-- BASE END -->
+
+    <script src="/views/contributors/contributors.js"></script>
 </body>
 
 </html>

@@ -19,7 +19,7 @@ hamburguer.addEventListener('click', function () {
 
 function copyLink() {
     let customText = document.getElementById('customLink').value;
-    let customLink = 'http://citi.me/' + customText;
+    let customLink = 'http://piig.me/' + customText;
     let element = document.createElement('textarea');
     element.value = customLink;
     document.body.appendChild(element);
