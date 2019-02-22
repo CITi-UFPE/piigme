@@ -9,7 +9,7 @@ const path = require('path');
 
 // TODO: Put apiKey in .env
 firebase.initializeApp({
-  apiKey: "AIzaSyCeL6JxqXKNTsOM1DFHylKOxz4YE4K_trw",
+  apiKey: process.env.FIREBASE_KEY,
   authDomain: "citily-1e28f.firebaseapp.com",
   databaseURL: "https://citily-1e28f.firebaseio.com",
   projectId: "citily-1e28f",
