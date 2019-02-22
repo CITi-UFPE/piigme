@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const firebase = require('firebase');
 const path = require('path');
+const sslRedirect = require('heroku-ssl-redirect');
 
 // ==================== FIREBASE CONFIG ==================== //
 
@@ -36,6 +37,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(sslRedirect());
 
 // serving static files
 app.use('/views', express.static(path.join(__dirname, 'views')));
