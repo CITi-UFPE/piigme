@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>piig.me by CITi</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/assets/home/home.css">
+
+  <!-- Normalize.css -->
+  <link rel="stylesheet" href="/assets/normalize.css">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!-- FAVICON -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+  <!-- BASE -->
+  <nav class="navbar" id="idNavbar">
+    <div class="navbar-collapse">
+      <ul class="navbar-buttons" id="navbar-buttons-list">
+        <li class="navbar-buttons-container">
+          <a class="navbar-buttons-link" href="/">HOME</a>
+        </li>
+        <li class="navbar-buttons-container">
+          <a class="navbar-buttons-link" href="/404">404</a>
+        </li>
+        <li class="navbar-buttons-container">
+          <a class="navbar-buttons-link" href="/contributors">COLABORADORES</a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-hamburger navbar-responsive">
+      <div class="navbar-hamburger-box">
+        <a class="navbar-hamburger-icon" id="navbar-x-container">
+          <div class="navbar-hamburger-bar bar1"></div>
+          <div class="navbar-hamburger-bar bar2"></div>
+          <div class="navbar-hamburger-bar bar3"></div>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <a href="https://github.com/CITi-UFPE/piigme" class="github-link" target="_blank">
+    <img class="github-logo" src="assets/images/github-logo.png" alt="Repositório do GitHub">
+  </a>
+  <!-- BASE END -->
+
+  <section class="content">
+    <div class="logo">
+      <img class="logo-image" src="assets/images/pig-logo.png" alt="Logo piig.me">
+      <p class="text-animation logo-text">piig.me</p>
+    </div>
+    <div class="form-container">
+      <form method="POST" onsubmit="copyLink()" class="form">
+        <div class="input-container">
+          <label for="input-original" class="input-label">LINK ORIGINAL</label>
+          <div class="input-box">
+            <input type="text" id="input-original" class="form-input" name="original_link" required>
+          </div>
+        </div>
+        <div class="input-container">
+          <label for="input-new" class="input-label">LINK CUSTOMIZADO</label>
+          <div class="input-box input-box-complete">
+            <label for="input-new" class="input-prefix">piig.me/</label>
+            <input type="text" id="input-new" class="form-input" name="custom_link" required>
+            <div class="input-status">
+              <span class="input-status-text" id="input-used-status">OK!</span>
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="GERAR LINK" class="form-button">
+      </form>
+    </div>
+  </section>
+
+  <!-- BASE -->
+  <footer class="footer">
+    <div class="footer-copyright">
+      <span class="footer-hacktober">HacktoberFest 2018</span>
+      <span class="footer-code-love">Made with
+        <i class="fas fa-code"></i>
+        and
+        <i class="far fa-heart"></i>
+        by
+        <a href="http://citi.org.br/" target="_blank">
+          <img src="assets/images/preto.png" class="footer-citi">
+        </a>
+      </span>
+    </div>
+  </footer>
+  <!-- BASE END -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/assets/home/home.js"></script>
+</body>
+
+</html>

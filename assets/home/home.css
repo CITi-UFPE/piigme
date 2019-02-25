@@ -1,0 +1,472 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+body {
+  font-family: 'Lato', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  width: 100%;
+  height: 65px;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+}
+
+.navbar-collapse {
+  margin-right: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navbar-buttons {
+  margin: 0;
+  width: 320px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
+
+.navbar-buttons-link {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.navbar-hamburger {
+  display: none;
+}
+
+/* ---------- END NAVBAR ---------- */
+
+/* ---------- GITHUB-LINK ---------- */
+.github-link {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 20%;
+  z-index: 100;
+  text-decoration: none;
+  background-color: #51e678;
+}
+
+.github-link:hover {
+  background-color: #60D77F;
+}
+
+.github-logo {
+  height: 36px;
+  width: 36px;
+}
+
+/* ---------- END GITHUB-LINK ---------- */
+
+
+/* ---------- CONTENT ---------- */
+.content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-image {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.logo-text {
+  font-family: 'Anonymous Pro', monospace;
+  margin: 0 auto;
+  border-right: 2px solid #000000;
+  border-left: 2px solid transparent;
+  font-size: 2.4rem;
+  line-height: 1.2em;
+  overflow: hidden;
+}
+
+.form-container {
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-label {
+  margin-bottom: 10px;
+  color: #6B6B6B;
+  font-size: 1rem;
+}
+
+.input-box {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-radius: 50px;
+  border: 1px solid #838383;
+  overflow: hidden;
+}
+
+.form-input {
+  width: calc(100% - 60px);
+  margin-left: 30px;
+  margin-right: 30px;
+  border: 0;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  color: #838383;
+  outline: none;
+}
+
+.input-box-complete .input-prefix {
+  font-size: 1rem;
+  margin-left: 30px;
+  font-family: 'Lato', sans-serif;
+  color: #838383;
+  cursor: text;
+}
+
+.input-box-complete .form-input {
+  width: 100%;
+  margin: 0;
+}
+
+.input-box-complete .input-status {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  background-color: #60D77F;
+  display: none; /* Remove when feature is done */
+  /*background-color:#CA3433;*/
+}
+
+.input-box-complete .input-status .input-status-text {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.form-button {
+  height: 50px;
+  width: 160px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: #51e678;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+}
+
+.form-button:hover {
+  background-color: #60D77F;
+}
+
+/* ---------- END CONTENT ---------- */
+
+/* ---------- FOOTER ---------- */
+.footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-copyright {
+  width: 100%;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #51e678;
+  font-size: 0.8rem;
+  color: #000000;
+}
+
+.footer-hacktober {
+  margin-left: 20px;
+}
+
+.footer-code-love {
+  margin-right: 20px;
+}
+
+.footer-citi {
+  height: 0.8rem;
+}
+
+/* ---------- END FOOTER ---------- */
+
+
+
+/* ---------- piig.me AMINATION ---------- */
+.text-animation {
+  animation: typewriter 2s steps(7) 0.5s 1 normal both,
+    blinkTextCursor 300ms steps(7) both 15;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 3.8em;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: #000000;
+  }
+
+  to {
+    border-right-color: transparent;
+  }
+}
+
+/* ---------- END piig.me AMINATION ---------- */
+
+@media(max-width: 1024px) {
+
+  /* ---------- NAVBAR ---------- */
+  .navbar {
+    height: 60px;
+    width: 60px;
+    right: 0;
+  }
+
+  .navbar-collapse {
+    display: flex;
+    margin: 0;
+  }
+
+  .navbar-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 240px;
+    height: 100vh;
+
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    margin: 0;
+    padding-left: 0;
+    padding-top: 60px;
+
+    background-color: #51e678;
+
+    display: none;
+  }
+
+  .navbar-buttons-container {
+    width: 80%;
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid #000000;
+  }
+
+  .navbar-buttons-container:last-child {
+    border-bottom: 0;
+  }
+
+  .navbar-buttons-link {
+    font-size: 1rem;
+  }
+
+  .navbar-hamburger {
+    width: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-hamburger-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 24px;
+    width: 24px;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .navbar-hamburger-bar {
+    background-color: #000000;
+    height: 2px;
+    width: 24px;
+
+    transition: all .2s ease-out;
+  }
+
+  .bar3 {
+    width: 16px;
+  }
+
+
+  /*Makes the X when opens the menu*/
+  .change .bar1 {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    position: absolute;
+    top: 12px;
+  }
+
+  .change .bar2 {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 12px;
+  }
+
+  .change .bar3 {
+    opacity: 0;
+  }
+
+  /* ---------- END NAVBAR ---------- */
+
+  /* ---------- GITHUB-LINK ---------- */
+  .github-link {
+    top: 0;
+  }
+  /* ---------- END GITHUB-LINK ---------- */
+
+
+  /* ---------- CONTENT ---------- */
+  .logo-text {
+    font-size: 2rem;
+  }
+
+  .form-container {
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+
+  .form {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .input-box {
+    height: 40px;
+  }
+
+  .form-input {
+    width: calc(100% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 0.9rem;
+  }
+
+  .input-box-complete {
+    height: 40px;
+  }
+
+  .input-box-complete .input-prefix {
+    margin-left: 15px;
+  }
+
+  .input-box-complete .input-status {
+    min-width: 70px;
+  }
+
+  /* ---------- END CONTENT ---------- */
+
+  /* ---------- FOOTER ---------- */
+  .footer-copyright {
+    height: 42px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .footer-hacktober {
+    margin-left: 0;
+  }
+
+  .footer-code-love {
+    margin-right: 0;
+  }
+
+  /* ---------- END FOOTER ---------- */
+
+
+}
