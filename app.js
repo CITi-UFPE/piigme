@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const firebase = require('firebase');
 const path = require('path');
 const sslRedirect = require('heroku-ssl-redirect');
+const exphbs = require('express-handlebars');
 
 // ==================== FIREBASE CONFIG ==================== //
 
@@ -41,26 +42,28 @@ app.use(bodyParser.json());
 app.use(sslRedirect());
 
 // serving static files
-app.use('/views', express.static(path.join(__dirname, 'views')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // ==================== FUNCTIONS ==================== //
 
-// returns the full path of the passed view
-const getViewPath = view => path.join(__dirname, `views/${view}/${view}.html`);
+// ==================== SETUP VIEWS ==================== //
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
 // ==================== RENDER VIEWS ==================== //
 
+
 app.get('/', (req, res) => {
-  res.sendFile(getViewPath('home'));
+  res.render('home');
 });
 
 app.get('/links', (req, res) => { // create view links
-  res.sendFile(getViewPath('links'));
+  res.render('links');
 });
 
 app.get('/contributors', (req, res) => {
-  res.sendFile(getViewPath('contributors'));
+  res.render('contributors');
 });
 
 // ==================== POST REQUESTS ==================== //
@@ -78,7 +81,7 @@ app.post('/', (req, res) => { // save original and custom link on firebase
     }
   });
 
-  res.sendFile(getViewPath('home'));
+  res.render('home');
 });
 
 // ==================== API REQUESTS ==================== //
@@ -121,7 +124,7 @@ app.get('*', (req, res) => { // treat all the url requests but the above ones
       }
     });
 
-    if(!matchFlag) res.sendFile(getViewPath('404'));
+    if(!matchFlag) res.render('404');
   });
 });
 
