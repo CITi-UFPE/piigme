@@ -1,4 +1,4 @@
-# CITi.ly
+# Piig.me
 
 This is a custom url shortener project.
 
