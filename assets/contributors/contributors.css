@@ -336,13 +336,14 @@ body {
 
   /* ---------- FOOTER ---------- */
   .footer-copyright {
-    height: 42px;
+    height: 45px;
     flex-direction: column;
     justify-content: center;
   }
 
   .footer-hacktober {
     margin-left: 0;
+    margin-bottom: 2px;
   }
 
   .footer-code-love {
