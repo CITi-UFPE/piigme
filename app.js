@@ -116,8 +116,6 @@ app.get('/api/get_links', (req, res) => { // middleware function
 app.get('*', (req, res) => { // treat all the url requests but the above ones
   matchFlag = false;
 
-  console.log(req.url.slice(1));
-
   if (req.url === '/favicon.ico') return;
 
   if (specialLinks.indexOf(req.url.slice(1)) !== -1) {
