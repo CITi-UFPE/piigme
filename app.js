@@ -11,7 +11,7 @@ const exphbs = require('express-handlebars');
 
 // TODO: Put apiKey in .env
 firebase.initializeApp({
-  apiKey: process.env.API_KEY,
+  apiKey: process.env.FIREBASE_KEY,
   authDomain: "citily-1e28f.firebaseapp.com",
   databaseURL: "https://citily-1e28f.firebaseio.com",
   projectId: "citily-1e28f",
