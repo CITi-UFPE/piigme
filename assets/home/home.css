@@ -234,7 +234,7 @@ body {
 
 .footer-copyright {
   width: 100%;
-  height: 28px;
+  height: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -453,13 +453,14 @@ body {
 
   /* ---------- FOOTER ---------- */
   .footer-copyright {
-    height: 42px;
+    height: 45px;
     flex-direction: column;
     justify-content: center;
   }
 
   .footer-hacktober {
     margin-left: 0;
+    margin-bottom: 2px;
   }
 
   .footer-code-love {
