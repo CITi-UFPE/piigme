@@ -1,6 +1,6 @@
 
 const populateTable = (links) => {
-    document.querySelector('#table-links').innerHTML = `
+    document.querySelector('.table-links').innerHTML = `
       <tr>
         <th>Custom Links</th>
         <th class="mobile-gone">Original Links</th>
@@ -9,11 +9,11 @@ const populateTable = (links) => {
     `;
   
     links.forEach((each) => {
-      document.querySelector('#table-links').innerHTML += `
+      document.querySelector('.table-links').innerHTML += `
         <tr>
           <td><a href="/${each.key}">/${each.key}</a></td>
           <td class="mobile-gone" >${each.original_link}</td>
-          <td id="table-clicks">${each.clicks}</td>
+          <td class="table-clicks">${each.clicks}</td>
         </tr>
       `;
     });
@@ -37,8 +37,4 @@ const httpGet = (success) => {
 httpGet((res) => {
     const data = JSON.parse(res);
     populateTable(data);
-});
-
-document.querySelector('#button-home').addEventListener('click', () => {
-    window.location.href = '/';
 });
