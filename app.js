@@ -23,6 +23,7 @@ firebase.initializeApp({
 
 const app = express();
 const db = firebase.database();
+const specialLinks = ['links', '404', 'contributors'];
 
 // ==================== MIDDLEWARE ==================== //
 
@@ -53,17 +54,8 @@ app.set('view engine', 'handlebars');
 
 // ==================== RENDER VIEWS ==================== //
 
-
 app.get('/', (req, res) => {
   res.render('home');
-});
-
-app.get('/links', (req, res) => { // create view links
-  res.render('links');
-});
-
-app.get('/contributors', (req, res) => {
-  res.render('contributors');
 });
 
 // ==================== POST REQUESTS ==================== //
@@ -71,17 +63,32 @@ app.get('/contributors', (req, res) => {
 app.post('/', (req, res) => { // save original and custom link on firebase
   const original_link = req.body.original_link;
   const custom_link = req.body.custom_link;
-  db.ref(`/links/${custom_link}`).set({
-    original_link,
-    clicks: 0
-  }, (error) => {
-    if (error) {
-      res.send('DB Error: ', error);
+
+  if (specialLinks.indexOf(custom_link) !== -1) {
+    res.send('duplicata');
+    return;
+  }
+
+  // check if custom_link already exists
+  db.ref(`/links/${custom_link}`).once('value').then((snapshot) => {
+    if (snapshot.val()) {
+      res.send('duplicata');
       return;
     }
+
+    db.ref(`/links/${custom_link}`).set({
+      original_link,
+      clicks: 0
+    }, (error) => {
+      if (error) {
+        res.send('error');
+        return;
+      }
+    });
+
+    res.send('ok');
   });
 
-  res.render('home');
 });
 
 // ==================== API REQUESTS ==================== //
@@ -111,6 +118,11 @@ app.get('*', (req, res) => { // treat all the url requests but the above ones
 
   if (req.url === '/favicon.ico') return;
 
+  if (specialLinks.indexOf(req.url.slice(1)) !== -1) {
+    res.render(req.url.slice(1));
+    return;
+  }
+
   // redirect all the requests to it's correspondent links
   db.ref('/links').once('value').then((snapshot) => {
     snapshot.forEach((snap) => {
@@ -124,11 +136,9 @@ app.get('*', (req, res) => { // treat all the url requests but the above ones
       }
     });
 
-    if(!matchFlag) res.render('404');
+    if (!matchFlag) res.render('404');
   });
 });
-
-// TODO: change post to ajax
 
 // ==================== START SERVER ==================== //
 
