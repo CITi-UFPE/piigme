@@ -18,8 +18,8 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 
   <!-- FontAwesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
 
   <!-- FAVICON -->
   <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
@@ -84,7 +84,7 @@
         <div class="input-container">
           <label for="input-original" class="input-label">LINK ORIGINAL</label>
           <div class="input-box">
-            <input type="text" id="input-original" class="form-input" name="original_link" required>
+            <input type="text" id="input-original" class="form-input" name="original_link" value="{{ original_link }}" required>
           </div>
         </div>
         <div class="input-container">
@@ -118,7 +118,18 @@
     </div>
   </footer>
   <!-- BASE END -->
-
+  {{#if success}}
+    <script>
+      // ALGM TIRA ESSE ALERT E DX ESSA PARTE BONITA PLS
+      alert('Link criado e copiado para área de transferência!');
+    </script>
+  {{/if}}
+  {{#if error}}
+    <script>
+      // ALGM TIRA ESSE ALERT E DX ESSA PARTE BONITA PLS
+      alert('Esse link customizado já está em uso!');
+    </script>
+  {{/if}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/assets/home/home.js"></script>
 </body>

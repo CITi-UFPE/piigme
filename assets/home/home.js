@@ -49,7 +49,7 @@ $(document).ready(function(){
 });
 
 function copyLink() {
-    let customText = document.getElementById('customLink').value;
+    let customText = document.querySelector('input[name=custom_link]').value;
     let customLink = 'http://piig.me/' + customText;
     let element = document.createElement('textarea');
     element.value = customLink;
@@ -57,5 +57,4 @@ function copyLink() {
     element.select();
     document.execCommand('copy');
     document.body.removeChild(element);
-    alert('Link criado e copiado para área de transferência!!');
 }

@@ -71,17 +71,32 @@ app.get('/contributors', (req, res) => {
 app.post('/', (req, res) => { // save original and custom link on firebase
   const original_link = req.body.original_link;
   const custom_link = req.body.custom_link;
-  db.ref(`/links/${custom_link}`).set({
-    original_link,
-    clicks: 0
-  }, (error) => {
-    if (error) {
-      res.send('DB Error: ', error);
+
+  // check if custom_link already exists
+  db.ref(`/links/${custom_link}`).once('value').then((snapshot) => {
+    if (snapshot.val()) {
+      res.render('home', {
+        error: 1,
+        original_link,
+      });
       return;
     }
+
+    db.ref(`/links/${custom_link}`).set({
+      original_link,
+      clicks: 0
+    }, (error) => {
+      if (error) {
+        res.send('DB Error: ', error);
+        return;
+      }
+    });
+
+    res.render('home', {
+      success: 1,
+    });
   });
 
-  res.render('home');
 });
 
 // ==================== API REQUESTS ==================== //
@@ -124,7 +139,7 @@ app.get('*', (req, res) => { // treat all the url requests but the above ones
       }
     });
 
-    if(!matchFlag) res.render('404');
+    if (!matchFlag) res.render('404');
   });
 });
 
