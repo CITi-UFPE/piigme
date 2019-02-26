@@ -1,4 +1,4 @@
-# Piig.me
+# piig.me
 
 This is a custom url shortener project.
 
@@ -10,7 +10,7 @@ This is a custom url shortener project.
     - [npm](https://www.npmjs.com/)
     - `$ npm i nodemon -g`
 2. In terminal:
-    - `$ git clone https://github.com/CITi-UFPE/citi.ly && cd citi.ly && npm i && npm run start`
+    - `$ git clone https://github.com/CITi-UFPE/piigme && cd piigme && npm i && npm run start`
 3. Access:
     - http://localhost:3000
 
