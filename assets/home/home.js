@@ -59,6 +59,7 @@ $(document).ready(function () {
     }, (data) => {
       if(data === 'ok') toast.success('Link criado e copiado para área de transferência!');
       if(data === 'repeated') toast.error('Esse link customizado já está em uso!');
+      if(data === 'piig') toast.error('O link não deve conter "piig.me"!');
     });
 
     // Copy text to the clipboard (Ctrl + C)
