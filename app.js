@@ -65,14 +65,14 @@ app.post('/', (req, res) => { // save original and custom link on firebase
   const custom_link = req.body.custom_link;
 
   if (specialLinks.indexOf(custom_link) !== -1) {
-    res.send('duplicata');
+    res.send('repeated');
     return;
   }
 
   // check if custom_link already exists
   db.ref(`/links/${custom_link}`).once('value').then((snapshot) => {
     if (snapshot.val()) {
-      res.send('duplicata');
+      res.send('repeated');
       return;
     }
 
@@ -104,7 +104,7 @@ app.get('/api/get_links', (req, res) => { // middleware function
           clicks: snap.val().clicks,
         });
       });
-      res.send(JSON.stringify(links)); // parse object in JSON type
+      res.send(links); // parse object in JSON type
     })
     .catch((error) => {
       console.log('Error:', error);

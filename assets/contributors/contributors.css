@@ -323,6 +323,11 @@ body {
     top: 0;
   }
 
+  .github-logo {
+    height: 40px;
+    width: 40px;
+  }
+
   /* ---------- END GITHUB-LINK ---------- */
 
   /* ---------- CONTENT ---------- */
