@@ -67,7 +67,7 @@ body {
   top: 20%;
   z-index: 100;
   text-decoration: none;
-  background-color: #51e678;
+  background-color: #51E678;
 }
 
 .github-link:hover {
@@ -155,7 +155,6 @@ body {
   margin-bottom: 30px;
   border-radius: 50px;
   border: 1px solid #838383;
-  overflow: hidden;
 }
 
 .form-input {
@@ -192,8 +191,8 @@ body {
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
   background-color: #60D77F;
-  display: none; /* Remove when feature is done */
-  /*background-color:#CA3433;*/
+  transition: all .2s ease-in-out;
+  /*background-color: #DD0048;*/
 }
 
 .input-box-complete .input-status .input-status-text {
@@ -210,7 +209,7 @@ body {
   outline: none;
   cursor: pointer;
   border-radius: 50px;
-  background-color: #51e678;
+  background-color: #51E678;
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
 }
@@ -239,7 +238,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #51e678;
+  background-color: #51E678;
   font-size: 0.8rem;
   color: #000000;
 }
@@ -319,7 +318,7 @@ body {
     padding-left: 0;
     padding-top: 60px;
 
-    background-color: #51e678;
+    background-color: #51E678;
 
     display: none;
   }
@@ -406,7 +405,14 @@ body {
 
   /* ---------- GITHUB-LINK ---------- */
   .github-link {
+    height: 60px;
+    width: 60px;
     top: 0;
+  }
+
+  .github-logo {
+    height: 40px;
+    width: 40px;
   }
   /* ---------- END GITHUB-LINK ---------- */
 

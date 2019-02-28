@@ -65,14 +65,19 @@ app.post('/', (req, res) => { // save original and custom link on firebase
   const custom_link = req.body.custom_link;
 
   if (specialLinks.indexOf(custom_link) !== -1) {
-    res.send('duplicata');
+    res.send('repeated');
+    return;
+  }
+
+  if(original_link.indexOf('piig.me/') !== -1){
+    res.send('piig');
     return;
   }
 
   // check if custom_link already exists
   db.ref(`/links/${custom_link}`).once('value').then((snapshot) => {
     if (snapshot.val()) {
-      res.send('duplicata');
+      res.send('repeated');
       return;
     }
 
@@ -104,7 +109,7 @@ app.get('/api/get_links', (req, res) => { // middleware function
           clicks: snap.val().clicks,
         });
       });
-      res.send(JSON.stringify(links)); // parse object in JSON type
+      res.send(links); // parse object in JSON type
     })
     .catch((error) => {
       console.log('Error:', error);
@@ -124,19 +129,21 @@ app.get('*', (req, res) => { // treat all the url requests but the above ones
   }
 
   // redirect all the requests to it's correspondent links
-  db.ref('/links').once('value').then((snapshot) => {
-    snapshot.forEach((snap) => {
-      if (snap.key === req.url.slice(1)) {
-        matchFlag = true;
-        db.ref(`/links/${snap.key}`).update({
-          clicks: +snap.val().clicks + 1, // keep count of the link accesses
-        }, (error) => {
-          res.redirect(snap.val().original_link);
-        });
-      }
-    });
+  db.ref(`/links${req.url}`).once('value').then((snapshot) => {
 
-    if (!matchFlag) res.render('404');
+    if (!snapshot.val()) res.render('404');
+
+    db.ref(`/links${req.url}`).update({
+      clicks: +snapshot.val().clicks + 1, // keep count of the link accesses
+    }, (error) => {
+      if (error) {
+        res.send('error');
+        return;
+      }
+
+      const linkRedirect = snapshot.val().original_link;
+      res.redirect(`${linkRedirect.indexOf('http') !== 0 ? 'http://' : ''}${linkRedirect}`);
+    });
   });
 });
 

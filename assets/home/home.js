@@ -1,6 +1,7 @@
 // NAVBAR
 
 $(document).ready(function () {
+  const toast = new Toasty();
 
   /* -------------------- NAVBAR -------------------- */
   let isMenuShown = false;
@@ -47,6 +48,8 @@ $(document).ready(function () {
     }
   });
 
+  /* -------------------- POST REQUEST -------------------- */
+
   $('#form-link').submit((e) => {
     e.preventDefault();
 
@@ -54,13 +57,14 @@ $(document).ready(function () {
       original_link: $('input[name="original_link"]').val(),
       custom_link: $('input[name="custom_link"]').val(),
     }, (data) => {
-      // ALGM DEIXE ESSA PARTE BONITA, SUGIRO TOASTY
-      if(data === 'ok') alert('Link criado e copiado para área de transferência!');
-      if(data === 'duplicata') alert('Esse link customizado já está em uso!');
+      if(data === 'ok') toast.success('Link criado e copiado para área de transferência!');
+      if(data === 'repeated') toast.error('Esse link customizado já está em uso!');
+      if(data === 'piig') toast.error('O link não deve conter "piig.me"!');
     });
 
+    // Copy text to the clipboard (Ctrl + C)
     let customText = document.querySelector('input[name=custom_link]').value;
-    let customLink = 'http://piig.me/' + customText;
+    let customLink = 'https://piig.me/' + customText;
     let element = document.createElement('textarea');
 
     element.value = customLink;
@@ -68,5 +72,47 @@ $(document).ready(function () {
     element.select();
     document.execCommand('copy');
     document.body.removeChild(element);
+  });
+
+  /* -------------------- CHECK AVAILABILITY -------------------- */
+
+  const specialLinks = ['links', '404', 'contributors'];
+  let linksJson;
+
+  $.ajax({ // ajax request to the api to get json of links
+    dataType: 'json',
+    url: '/api/get_links',
+    type: 'GET',
+    success: (result) => {
+      linksJson = result;
+    },
+    error: (error) => {
+      console.log(`Error: ${error}`);
+    }
+  });
+
+  // When key is pressed, runs the array looking for the desired key
+  $('#input-new').keyup(() => {
+    let customLink = $('#input-new').val();
+    let isFound = 0;
+    linksJson.forEach((link) => {
+      if(customLink === link.key) {
+        isFound = 1;
+      }
+    });
+
+    specialLinks.forEach((link) => { // Looks also in the specialLinks
+      if(customLink === link) {
+        isFound = 1;
+      }
+    });
+
+    if(isFound) { // Then, changes the alert section
+      $('.input-status').css('background-color', '#DD0048');
+      $('.input-status-text').text('EM USO');
+    } else {
+      $('.input-status').css('background-color', '#60D77F');
+      $('.input-status-text').text('OK!');
+    }
   });
 });

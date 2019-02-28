@@ -1,5 +1,5 @@
 {
-  "name": "citi.ly",
+  "name": "piigme",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CITi-UFPE/citi.ly.git"
+    "url": "git+https://github.com/CITi-UFPE/piigme.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CITi-UFPE/citi.ly/issues"
+    "url": "https://github.com/CITi-UFPE/piigme/issues"
   },
-  "homepage": "https://github.com/CITi-UFPE/citi.ly#readme",
+  "homepage": "https://github.com/CITi-UFPE/piigme#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
