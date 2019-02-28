@@ -120,20 +120,25 @@ app.get('/api/get_links', (req, res) => { // middleware function
 
 app.get('*', (req, res) => { // treat all the url requests but the above ones
   matchFlag = false;
+  console.log(req.baseUrl)
 
   if (req.url === '/favicon.ico') return;
+  if (req.url === '/manifest.json') return;
 
-  if (specialLinks.indexOf(req.url.slice(1)) !== -1) {
-    res.render(req.url.slice(1));
+  if (specialLinks.indexOf(req.url.split('?')[0].slice(1)) !== -1) {
+    res.render(req.url.split('?')[0].slice(1));
     return;
   }
 
   // redirect all the requests to it's correspondent links
-  db.ref(`/links${req.url}`).once('value').then((snapshot) => {
+  db.ref(`/links${req.url.split('?')[0]}`).once('value').then((snapshot) => {
 
-    if (!snapshot.val()) res.render('404');
+    if (!snapshot.val()) {
+      res.render('404');
+      return;
+    }
 
-    db.ref(`/links${req.url}`).update({
+    db.ref(`/links${req.url.split('?')[0]}`).update({
       clicks: +snapshot.val().clicks + 1, // keep count of the link accesses
     }, (error) => {
       if (error) {
