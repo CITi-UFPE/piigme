@@ -108,7 +108,7 @@ $(document).ready(function () {
     });
 
     if(isFound) { // Then, changes the alert section
-      $('.input-status').css('background-color', '#DD0048');
+      $('.input-status').css('background-color', '#FF6363');
       $('.input-status-text').text('EM USO');
     } else {
       $('.input-status').css('background-color', '#60D77F');
