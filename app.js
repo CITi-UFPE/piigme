@@ -120,7 +120,6 @@ app.get('/api/get_links', (req, res) => { // middleware function
 
 app.get('*', (req, res) => { // treat all the url requests but the above ones
   matchFlag = false;
-  console.log(req.baseUrl)
 
   if (req.url === '/favicon.ico') return;
   if (req.url === '/manifest.json') return;
