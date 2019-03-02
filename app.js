@@ -109,7 +109,7 @@ app.get('/api/get_links', (req, res) => { // middleware function
           clicks: snap.val().clicks,
         });
       });
-      res.send(links); // parse object in JSON type
+      res.send(JSON.stringify(links)); // parse object in JSON type
     })
     .catch((error) => {
       console.log('Error:', error);
