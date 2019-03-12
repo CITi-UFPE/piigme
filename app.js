@@ -24,6 +24,7 @@ firebase.initializeApp({
 const app = express();
 const db = firebase.database();
 const specialLinks = ['links', '404', 'contributors'];
+let waitingResponse = 0; // used to see how many requests are currently open
 
 // ==================== MIDDLEWARE ==================== //
 
@@ -47,6 +48,51 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // ==================== FUNCTIONS ==================== //
 
+const getLink = (req, res) => {
+  if (req.url === '/favicon.ico') return;
+  if (req.url === '/manifest.json') return;
+
+  const link = req.url.split('?')[0].slice(1);
+
+  if (specialLinks.indexOf(link) !== -1) {
+    res.render(link);
+    return;
+  }
+
+  // this part avoids the server to have more than 80 requests to firebase open at the same time
+  // because the free account does not allow more than 100 simultaneous connections
+  if (waitingResponse > 80) {
+    setTimeout(() => {
+      getLink(req, res);
+    }, 100); // wait 100ms before trying again
+    return;
+  }
+
+  waitingResponse++;
+
+  // redirect all the requests to it's correspondent links
+  db.ref(`/links/${link}`).once('value').then((snapshot) => {
+    waitingResponse--;
+
+    if (!snapshot.val()) {
+      res.render('404');
+      return;
+    }
+
+    db.ref(`/links/${link}`).update({
+      clicks: +snapshot.val().clicks + 1, // keep count of the link accesses
+    }, (error) => {
+      if (error) {
+        res.send('error');
+        return;
+      }
+
+      const linkRedirect = snapshot.val().original_link;
+      res.redirect(`${linkRedirect.indexOf('http') !== 0 ? 'http://' : ''}${linkRedirect}`);
+    });
+  });
+}
+
 // ==================== SETUP VIEWS ==================== //
 
 app.engine('handlebars', exphbs());
@@ -69,7 +115,7 @@ app.post('/', (req, res) => { // save original and custom link on firebase
     return;
   }
 
-  if(original_link.indexOf('piig.me/') !== -1){
+  if (original_link.indexOf('piig.me/') !== -1) {
     res.send('piig');
     return;
   }
@@ -119,36 +165,7 @@ app.get('/api/get_links', (req, res) => { // middleware function
 // ==================== REDIRECT ROUTES ==================== //
 
 app.get('*', (req, res) => { // treat all the url requests but the above ones
-  matchFlag = false;
-
-  if (req.url === '/favicon.ico') return;
-  if (req.url === '/manifest.json') return;
-
-  if (specialLinks.indexOf(req.url.split('?')[0].slice(1)) !== -1) {
-    res.render(req.url.split('?')[0].slice(1));
-    return;
-  }
-
-  // redirect all the requests to it's correspondent links
-  db.ref(`/links${req.url.split('?')[0]}`).once('value').then((snapshot) => {
-
-    if (!snapshot.val()) {
-      res.render('404');
-      return;
-    }
-
-    db.ref(`/links${req.url.split('?')[0]}`).update({
-      clicks: +snapshot.val().clicks + 1, // keep count of the link accesses
-    }, (error) => {
-      if (error) {
-        res.send('error');
-        return;
-      }
-
-      const linkRedirect = snapshot.val().original_link;
-      res.redirect(`${linkRedirect.indexOf('http') !== 0 ? 'http://' : ''}${linkRedirect}`);
-    });
-  });
+  getLink(req, res);
 });
 
 // ==================== START SERVER ==================== //
