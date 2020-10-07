@@ -64,7 +64,7 @@ $(document).ready(function () {
 
     // Copy text to the clipboard (Ctrl + C)
     let customText = document.querySelector('input[name=custom_link]').value;
-    let customLink = 'https://piig.me/' + customText;
+    let customLink = 'https://www.piig.me/' + customText;
     let element = document.createElement('textarea');
 
     element.value = customLink;
