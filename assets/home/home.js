@@ -61,7 +61,9 @@ $(document).ready(function () {
       url: 'http://localhost:5000/api/urls/shorten',
       type: 'POST',
       success: (data) => {
-        if(data.shortUrl) toast.success('Link criado e copiado para área de transferência!');
+        if(data.shortUrl) toast.success('Link criado e já copiado! Basta colar onde você deseja 🐷');
+        $('input[name="original_link"]').val('');
+        $('input[name="custom_link"]').val('')
       },
       error: (error) => {
         if(error.responseJSON === 'Already existing code') toast.error('Esse link customizado já está em uso!');
