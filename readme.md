@@ -10,6 +10,6 @@ This is a custom url shortener project.
 2. In terminal:
     - `$ git clone https://github.com/CITi-UFPE/piigme && cd piigme && npm i && npm run start`
 3. Access:
-    - http://localhost:3000
+    - http://localhost:3333
 
 Done!
