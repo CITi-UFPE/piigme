@@ -52,19 +52,26 @@ $(document).ready(function () {
 
   $('#form-link').submit((e) => {
     e.preventDefault();
-
-    $.post('/', {
-      original_link: $('input[name="original_link"]').val(),
-      custom_link: $('input[name="custom_link"]').val(),
-    }, (data) => {
-      if(data === 'ok') toast.success('Link criado e copiado para área de transferência!');
-      if(data === 'repeated') toast.error('Esse link customizado já está em uso!');
-      if(data === 'piig') toast.error('O link não deve conter "piig.me"!');
+    $.ajax({
+      dataType: 'json',
+      data: {
+        longUrl: $('input[name="original_link"]').val(),
+        urlCode: $('input[name="custom_link"]').val(),
+      },
+      url: 'http://localhost:5000/api/urls/shorten',
+      type: 'POST',
+      success: (data) => {
+        if(data.shortUrl) toast.success('Link criado e copiado para área de transferência!');
+      },
+      error: (error) => {
+        if(error.responseJSON === 'Already existing code') toast.error('Esse link customizado já está em uso!');
+        if(error.responseJSON === 'The link must not contain piig.me') toast.error('O link não deve conter "piig.me"!');
+      }
     });
 
     // Copy text to the clipboard (Ctrl + C)
     let customText = document.querySelector('input[name=custom_link]').value;
-    let customLink = 'https://www.piig.me/' + customText;
+    let customLink = 'http://localhost:5000/' + customText;
     let element = document.createElement('textarea');
 
     element.value = customLink;
@@ -81,7 +88,7 @@ $(document).ready(function () {
 
   $.ajax({ // ajax request to the api to get json of links
     dataType: 'json',
-    url: '/api/get_links',
+    url: 'http://localhost:5000/api/urls',
     type: 'GET',
     success: (result) => {
       linksJson = result;
@@ -96,7 +103,7 @@ $(document).ready(function () {
     let customLink = $('#input-new').val();
     let isFound = 0;
     linksJson.forEach((link) => {
-      if(customLink === link.key) {
+      if(customLink === link.urlCode) {
         isFound = 1;
       }
     });

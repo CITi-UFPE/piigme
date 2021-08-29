@@ -1,2 +1,9 @@
-node_modules/
-.env
+.sass-cache/
+*.css.map
+**/node_modules
+/node_modules
+
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+package-lock.json 
