@@ -1,7 +1,10 @@
 // NAVBAR
 
-const deployedUrl = 'http://bepig.me'
-const localUrl = 'http://localhost:5000'
+const deployedUrlServer = 'http://bepig.me';
+const localUrlServer = 'http://localhost:5000'
+
+const deployedUrlWeb = 'http://web.bepig.me';
+const localUrlWeb = 'http://localhost:3333'
 
 $(document).ready(function () {
   const toast = new Toasty();
@@ -57,11 +60,12 @@ $(document).ready(function () {
     e.preventDefault();
     $.ajax({
       dataType: 'json',
+      headers: {  'Access-Control-Allow-Origin': `${deployedUrlWeb}` },
       data: {
         longUrl: $('input[name="original_link"]').val(),
         urlCode: $('input[name="custom_link"]').val(),
       },
-      url: `${deployedUrl}/api/urls/shorten`,
+      url: `${deployedUrlServer}/api/urls/shorten`,
       type: 'POST',
       success: (data) => {
         if(data.shortUrl) toast.success('Link criado e já copiado! Basta colar onde você deseja 🐷');
@@ -76,7 +80,7 @@ $(document).ready(function () {
 
     // Copy text to the clipboard (Ctrl + C)
     let customText = document.querySelector('input[name=custom_link]').value;
-    let customLink = `${deployedUrl}/` + customText;
+    let customLink = `${deployedUrlServer}/` + customText;
     let element = document.createElement('textarea');
 
     element.value = customLink;
@@ -93,7 +97,8 @@ $(document).ready(function () {
 
   $.ajax({ // ajax request to the api to get json of links
     dataType: 'json',
-    url: 'http://localhost:5000/api/urls',
+    headers: {  'Access-Control-Allow-Origin': `${deployedUrlWeb}` },
+    url: `${deployedUrlServer}/api/urls`,
     type: 'GET',
     success: (result) => {
       linksJson = result;
