@@ -1,8 +1,8 @@
 {
-  "name": "onepage-ps",
+  "name": "piigme",
   "version": "1.0.0",
   "main": "server.js",
-  "repository": "https://github.com/CITi-UFPE/onepage-ps",
+  "repository": "https://github.com/CITi-UFPE/piigme",
   "author": "labprogsam <som3@cin.ufpe.br>",
   "license": "MIT",
   "dependencies": {

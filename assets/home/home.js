@@ -1,5 +1,8 @@
 // NAVBAR
 
+const deployedUrl = 'http://api.bepig.me'
+const localUrl = 'http://localhost:5000'
+
 $(document).ready(function () {
   const toast = new Toasty();
 
@@ -58,7 +61,7 @@ $(document).ready(function () {
         longUrl: $('input[name="original_link"]').val(),
         urlCode: $('input[name="custom_link"]').val(),
       },
-      url: 'http://localhost:5000/api/urls/shorten',
+      url: `${deployedUrl}/api/urls/shorten`,
       type: 'POST',
       success: (data) => {
         if(data.shortUrl) toast.success('Link criado e já copiado! Basta colar onde você deseja 🐷');
@@ -73,7 +76,7 @@ $(document).ready(function () {
 
     // Copy text to the clipboard (Ctrl + C)
     let customText = document.querySelector('input[name=custom_link]').value;
-    let customLink = 'http://localhost:5000/' + customText;
+    let customLink = `${deployedUrl}/` + customText;
     let element = document.createElement('textarea');
 
     element.value = customLink;
