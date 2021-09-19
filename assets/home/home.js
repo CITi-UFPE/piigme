@@ -1,6 +1,6 @@
 // NAVBAR
 
-const deployedUrlServer = 'http://bepig.me';
+const deployedUrlServer = 'https://bepig.me';
 // const localUrlServer = 'http://localhost:5000'
 
 const deployedUrlWeb = 'https://web.bepig.me';
