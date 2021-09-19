@@ -67,7 +67,7 @@ $(document).ready(function () {
       },
       error: (error) => {
         if(error.responseJSON === 'Already existing code') toast.error('Esse link customizado já está em uso!');
-        if(error.responseJSON === 'The link must not contain piig.me') toast.error('O link não deve conter "piig.me"!');
+        if(error.responseJSON === 'The link must not contain bepig.me') toast.error('O link não deve conter "bepig.me"!');
       }
     });
 

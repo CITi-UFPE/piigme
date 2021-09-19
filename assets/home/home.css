@@ -259,10 +259,10 @@ body {
 
 
 
-/* ---------- piig.me AMINATION ---------- */
+/* ---------- bepig.me AMINATION ---------- */
 .text-animation {
-  animation: typewriter 2s steps(7) 0.5s 1 normal both,
-    blinkTextCursor 300ms steps(7) both 15;
+  animation: typewriter 2.5s steps(8) 0.5s 1 normal both,
+              blinkTextCursor 300ms steps(7) both 15;
 }
 
 @keyframes typewriter {
@@ -271,7 +271,7 @@ body {
   }
 
   to {
-    width: 3.8em;
+    width: 4.3em;
   }
 }
 
@@ -285,7 +285,7 @@ body {
   }
 }
 
-/* ---------- END piig.me AMINATION ---------- */
+/* ---------- END bepig.me AMINATION ---------- */
 
 @media(max-width: 1024px) {
 

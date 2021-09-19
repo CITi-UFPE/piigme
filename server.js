@@ -12,8 +12,8 @@ app.get('/404', function(req, res) {
   res.sendFile(path.join(__dirname + '/views/404.html'));
 });
 
-app.get('/colaborators', function(req, res) {
-  res.sendFile(path.join(__dirname + '/views/colaborators.html'));
+app.get('/contributors', function(req, res) {
+  res.sendFile(path.join(__dirname + '/views/contributors.html'));
 });
 
 app.listen(3333, () => {
