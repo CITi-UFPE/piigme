@@ -1,6 +1,6 @@
 // NAVBAR
 
-const deployedUrl = 'http://api.bepig.me'
+const deployedUrl = 'http://bepig.me'
 const localUrl = 'http://localhost:5000'
 
 $(document).ready(function () {
