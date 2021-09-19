@@ -1,10 +1,10 @@
 // NAVBAR
 
 const deployedUrlServer = 'http://bepig.me';
-const localUrlServer = 'http://localhost:5000'
+// const localUrlServer = 'http://localhost:5000'
 
-const deployedUrlWeb = 'http://web.bepig.me';
-const localUrlWeb = 'http://localhost:3333'
+const deployedUrlWeb = 'https://web.bepig.me';
+// const localUrlWeb = 'http://localhost:3333'
 
 $(document).ready(function () {
   const toast = new Toasty();
